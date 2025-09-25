@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -24,7 +25,6 @@ export default function Menu() {
   const resizeTimeout = useRef<number | null>(null);
   const rafPending = useRef(false);
 
-  const openMobile = useCallback(() => setMobileOpen(true), []);
   const closeMobile = useCallback(() => setMobileOpen(false), []);
   const toggleMobile = useCallback(() => setMobileOpen((s) => !s), []);
 
