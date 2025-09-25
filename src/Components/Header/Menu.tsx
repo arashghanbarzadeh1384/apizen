@@ -249,8 +249,9 @@ export default function Menu() {
           />
         )}
 
+        {/* --- اصلاح ref --- */}
         <aside
-          ref={(el) => (asideRef.current = el)}
+          ref={asideRef}
           className={`fixed top-0 right-0 h-full w-[80%] max-w-xs bg-white shadow-xl z-70 transform transition-transform duration-300 md:hidden ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
