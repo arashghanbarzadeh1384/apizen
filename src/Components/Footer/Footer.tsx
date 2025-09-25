@@ -1,16 +1,17 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import SocialButton from "../Social/Social";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-t from-[#1A1A1A] to-[#D32F2F] text-white">
       <div className="max-w-6xl mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <img
+          <Image
             src="/Images/logo.png"
             alt="لوگو"
             className="w-40 h-auto mb-4"
+            width={40} height={40}
           />
           <p className="text-[#FFFFFF]/80 text-sm md:text-base leading-relaxed md:text-right">
             اپیزن پلتفرمی برای معرفی و پیدا کردن کسب‌وکارها روی نقشه و رزرو آنلاین خدمات.

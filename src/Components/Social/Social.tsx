@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; // اجباری اگر React < 17
 import styles from "./SocialButton.module.css";
 import {
   FaTelegramPlane,
@@ -10,7 +10,7 @@ import {
 interface SocialLink {
   platform: "telegram" | "whatsapp" | "linkedin" | "instagram";
   url: string;
-  icon: JSX.Element;
+  icon: React.ReactNode; 
 }
 
 const socialLinks: SocialLink[] = [
