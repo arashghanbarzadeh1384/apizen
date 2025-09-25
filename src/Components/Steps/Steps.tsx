@@ -4,7 +4,7 @@ interface Step {
   id: number;
   title: string;
   desc: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 const DEFAULT_STEPS: Step[] = [
