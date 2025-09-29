@@ -1,4 +1,5 @@
 import { FaUserPlus, FaMapMarkerAlt, FaUsers } from "react-icons/fa";
+import FeatureAnimator from "../Feature/FeatureAnimator";
 
 interface Step {
   id: number;
@@ -28,82 +29,92 @@ const DEFAULT_STEPS: Step[] = [
   },
 ];
 
-export default async function Steps({
-  steps = DEFAULT_STEPS,
-}: {
-  steps?: Step[];
-}) {
+export default function Steps({ steps = DEFAULT_STEPS }: { steps?: Step[] }) {
   return (
-    <section
-      dir="rtl"
-      aria-label="سه قدم تا دیده شدن"
-      className="relative bg-gradient-to-b py-24 px-6 md:px-16 lg:px-24 overflow-hidden"
-    >
-      {/* تیتر و توضیح */}
-      <div
-        className="text-center max-w-3xl mx-auto mb-20 relative z-10"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
-        <h1 className="text-[28px] md:text-[44px] font-extrabold text-[#D32F2F] leading-tight">
-          سه قدم تا دیده شدن
-        </h1>
-        <span className="block w-32 h-1 bg-gradient-to-r from-[#F77E2D] to-[#D32F2F] rounded-full mx-auto mt-4 shadow-md" />
-        <p className="mt-6 text-[#111827]/80 text-base md:text-lg leading-relaxed">
-          فقط سه مرحله ساده کافیه تا کسب‌وکارت روی نقشه ثبت بشه و مشتری‌ها راحت
-          بتونن پیدات کنن، تماس بگیرن یا حتی آنلاین رزرو کنن.
-        </p>
-      </div>
+    <>
+      <FeatureAnimator>
+        <section
+          dir="rtl"
+          aria-label="سه قدم تا دیده شدن"
+          className="relative bg-white py-24 px-6 md:px-16 lg:px-24 overflow-hidden"
+        >
+          {/* تیتر و توضیح */}
+          <div
+            className="text-center max-w-3xl mx-auto mb-20 relative z-10"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <h1 className="text-4xl md:text-5xl font-extrabold text-neutral-800 leading-tight feature-title">
+              سه قدم تا دیده شدن
+            </h1>
+            <span className="block w-24 h-2 bg-gradient-to-r from-[#D32F2F] to-[#F77E2D] rounded-full mx-auto mt-4 feature-title-underline" />
+            <p className="mt-6 text-neutral-500 text-base md:text-lg leading-relaxed">
+              فقط سه مرحله ساده کافیه تا کسب‌وکارت روی نقشه ثبت بشه و مشتری‌ها
+              راحت بتونن پیدات کنن، تماس بگیرن یا حتی آنلاین رزرو کنن.
+            </p>
+          </div>
 
-      <div className="relative max-w-5xl mx-auto z-10">
-        <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-1 -translate-x-1/2 bg-gradient-to-b from-[#F77E2D] via-[#FF7043] to-[#D32F2F] opacity-40 rounded-full" />
+          <div className="relative max-w-5xl mx-auto z-10">
+            {/* خط تایم‌لاین */}
+            <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-1 -translate-x-1/2 bg-gray-200" />
 
-        <div className="flex flex-col gap-16">
-          {steps.map((step, index) => (
-            <div
-              key={step.id}
-              className={`relative flex flex-col md:flex-row items-center ${
-                index % 2 === 0 ? "md:justify-start" : "md:justify-end"
-              }`}
-              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-              data-aos-duration="1000"
-              data-aos-offset="200"
-            >
-              <article
-                role="listitem"
-                aria-labelledby={`step-title-${step.id}`}
-                className="relative bg-white/80 backdrop-blur-sm border border-gray-100 shadow-xl rounded-2xl p-8 w-full md:w-[45%] text-center transition-all duration-300 hover:shadow-2xl hover:scale-105"
-              >
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 md:static md:translate-x-0 mb-6 md:mb-0 flex justify-center">
-                  <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[#F77E2D] to-[#D32F2F] text-white shadow-lg ring-4 ring-white">
-                    <span className="font-bold">{step.id}</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-center w-20 h-20 mx-auto rounded-full bg-white shadow-md mb-5">
-                  <div className="bg-gradient-to-br from-[#F77E2D] to-[#D32F2F] w-14 h-14 rounded-full flex items-center justify-center text-white">
-                    {step.icon}
-                  </div>
-                </div>
-
-                <h2
-                  id={`step-title-${step.id}`}
-                  className="text-xl font-semibold text-[#0F172A] mb-2"
+            <div className="flex flex-col gap-16">
+              {steps.map((step, index) => (
+                <div
+                  key={step.id}
+                  className={`relative flex flex-col md:flex-row items-center ${
+                    index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                  }`}
+                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                  data-aos-duration="1000"
+                  data-aos-offset="200"
                 >
-                  {step.title}
-                </h2>
-                <p className="text-[#0F172A]/70 text-sm md:text-base leading-relaxed">
-                  {step.desc}
-                </p>
+                  <article
+                    role="listitem"
+                    aria-labelledby={`step-title-${step.id}`}
+                    className={`relative bg-white border border-gray-200 shadow-md rounded-3xl p-8 w-full md:w-[45%] text-center transition-all duration-300 hover:shadow-xl hover:scale-105 transform ${
+                      index % 2 === 0 ? "md:mr-20" : "md:ml-20"
+                    }`}
+                  >
+                    {/* دایره شماره */}
+                    <div
+                      className={`absolute top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg z-20 ${
+                        index % 2 === 0
+                          ? "left-0 -translate-x-1/2"
+                          : "right-0 translate-x-1/2"
+                      }`}
+                    >
+                      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#F77E2D] to-[#D32F2F] text-white">
+                        <span className="font-bold text-xl">{step.id}</span>
+                      </div>
+                    </div>
 
-                <span className="sr-only">
-                  مرحله {step.id} — {step.title}
-                </span>
-              </article>
+                    {/* آیکون در موبایل */}
+                    <div className="md:hidden flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[#F77E2D] to-[#D32F2F] text-white shadow-lg ring-4 ring-white mb-6 mx-auto">
+                      {step.icon}
+                    </div>
+
+                    {/* محتوای کارت */}
+                    <h2
+                      id={`step-title-${step.id}`}
+                      className="text-2xl font-bold text-neutral-800 mb-2"
+                    >
+                      {step.title}
+                    </h2>
+                    <p className="text-neutral-500 text-base leading-relaxed">
+                      {step.desc}
+                    </p>
+
+                    <span className="sr-only">
+                      مرحله {step.id} — {step.title}
+                    </span>
+                  </article>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </div>
+        </section>
+      </FeatureAnimator>
+    </>
   );
 }

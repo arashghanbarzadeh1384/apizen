@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa"; // استفاده از آیکون مدرن‌تر
 
 interface FAQItem {
   question: string;
@@ -37,12 +38,9 @@ export default function Questions() {
   };
 
   return (
-    <section className="max-w-3xl mx-auto py-16 px-6 md:px-0">
+    <section className="max-w-3xl mx-auto py-20 px-6 md:px-0">
       <h2
-        className="text-4xl md:text-5xl font-extrabold text-center mb-12"
-        data-aos="fade-up"
-        data-aos-duration="800"
-        style={{ color: "#D32F2F" }}
+        className="text-4xl md:text-5xl font-extrabold text-neutral-800 text-center mb-16"
       >
         سوالات متداول
       </h2>
@@ -51,23 +49,26 @@ export default function Questions() {
         {FAQ_DATA.map((item, index) => (
           <div
             key={index}
-            className="border border-[#F77E2D] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-            data-aos="fade-up"
-            data-aos-duration="800"
-            data-aos-delay={index * 150}
+            className={`border border-gray-200 rounded-3xl overflow-hidden shadow-md ${
+              openIndex === index ? "border-[#D32F2F]" : ""
+            }`}
           >
             <button
               onClick={() => toggle(index)}
-              className="w-full text-left px-6 py-5 flex justify-between items-center bg-[#F77E2D] hover:bg-[#D32F2F] transition-colors duration-300"
+              className="w-full text-right p-6 flex justify-between items-center text-neutral-800 bg-white"
             >
-              <span className="font-semibold text-white text-lg md:text-xl">
+              <span className="font-semibold text-xl md:text-2xl">
                 {item.question}
               </span>
-              <span className="text-2xl text-white">{openIndex === index ? "−" : "+"}</span>
+              <FaChevronDown
+                className={`w-5 h-5 text-neutral-500 ${
+                  openIndex === index ? "rotate-180 text-[#D32F2F]" : ""
+                }`}
+              />
             </button>
 
             {openIndex === index && (
-              <div className="px-6 py-5 bg-[#1A1A1A] text-[#F77E2D] text-base md:text-lg leading-relaxed transition-all duration-300">
+              <div className="px-6 pb-6 text-neutral-500 text-base leading-relaxed">
                 {item.answer}
               </div>
             )}
